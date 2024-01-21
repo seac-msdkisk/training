@@ -1,7 +1,6 @@
 package S1;
 
 import java.util.ArrayList;
-import java.util.Iterator;
 //抽象クラス
 public abstract class  Shop {
 	
@@ -45,9 +44,13 @@ public abstract class  Shop {
 	}*/
 	//listから順に取り出して引数のgoodsNameと比較
 	public void saleGoods(String goodsName, ShoppingBag shoppingBag) {
+		/*
 		Iterator<Goods> it = list.iterator();
 		while(it.hasNext()) {
 			Goods goods = it.next();
+		*/
+		//拡張for 文に書き換え
+		for (Goods goods : list) {
 			String name = goods.getGoodsName();
 			if(name.equals(goodsName)) {
 				this.goods = goods;

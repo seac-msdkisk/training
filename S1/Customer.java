@@ -1,6 +1,7 @@
 package S1;
 
-public class Customer {
+public class Customer implements UnloadGoods {
+	
 	private String customerName;
 	private ShoppingBag shoppingBag; 
 	//private Shop shop;
@@ -28,6 +29,18 @@ public class Customer {
 		shop.saleGoods(goodsName, shoppingBag);
 		
 		
+	}
+	//shoppingBagに操作を委譲する
+	@Override
+	public void clearGoods() {
+		System.out.println("(Customer) 「買い物かごの中身をすべて削除します。」");
+		this.shoppingBag.clearGoods();
+	}
+	//shoppingBagに操作を委譲する。
+	@Override
+	public void removeGoods(String goodsName) {
+		System.out.println("(Customer) 「買い物かごの中から" + goodsName + "を削除します。」" );
+		this.shoppingBag.removeGoods(goodsName);
 	}
 	
 }
